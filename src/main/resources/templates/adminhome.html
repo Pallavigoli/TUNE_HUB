@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ADMIN PAGE</title>
+<link rel="stylesheet" type="text/css" href="zstyle1.css">
+</head>
+<body>
+<h1 id="k">Welcome Admin</h1>
+
+	<a th:href="@{/map-songs}">ADD SONGS</a>
+	<br/>
+	<a th:href="@{/map-viewsongs}">VIEW SONGS</a>
+	<br/>
+	<a th:href="@{/createplaylist}">CREATE PLAYLIST</a>
+	<br/>
+	<a href="@{/viewPlaylists}">VIEW PLAYLISTS</a>
+
+<br>
+<a th:href="@{/map-logout}">LOG OUT</a>
+
+</body>
+</html>
