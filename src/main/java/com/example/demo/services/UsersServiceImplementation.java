@@ -13,7 +13,7 @@ implements UsersService
 {
 	@Autowired
 	UsersRepository repo;
-	
+
 	@Override
 	public String addUser(Users user) 
 	{
@@ -23,7 +23,7 @@ implements UsersService
 
 	@Override
 	public boolean emailExists(String email) {
-		
+
 		if(repo.findByEmail(email) == null) 
 		{
 			return false;
@@ -36,20 +36,26 @@ implements UsersService
 
 	@Override
 	public boolean validateUser(String email, String password) {
-		
+
 		Users user = repo.findByEmail(email);
-		String db_password = user.getPassword();
-		if(db_password.equals(password))
+		if(user!=null && user.getEmail()!=null && user.getEmail().equals(email))
 		{
-			return true;
+			String db_password = user.getPassword();
+			if(db_password.equals(password))
+			{
+				return true;
+			}
+			return false;
 		}
 		else
 		{
 			return false;
 		}
-		
-		
 	}
+
+
+
+
 
 	@Override
 	public String getRole(String email) {
@@ -64,6 +70,13 @@ implements UsersService
 	@Override
 	public void updateUser(Users u) {
 		repo.save(u);
+	}
+
+	@Override
+	public void deactivateUser(String email) {
+		Users u=repo.findByEmail(email);
+		repo.delete(u);
+
 	}
 }
 

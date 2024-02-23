@@ -1,0 +1,36 @@
+.container {
+    background-color: #ffffff; /* Form background color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    width: 300px;
+    margin: 50px auto; /* Centering the form horizontally */
+}
+
+.container label {
+    display:inline;
+    margin-bottom: 5px;
+}
+
+.container input[type="text"] {
+    width: calc(100% - 12px); /* Adjusting width for the input to account for padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Optional: Hover effect for submit button */
+.container input[type="submit"]:hover {
+    background-color: #0056b3; /* Button hover background color */
+}

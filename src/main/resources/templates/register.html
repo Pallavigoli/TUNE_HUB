@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>REGISTRATION PAGE</title>
-  <link rel="stylesheet" href="/css/style3.css">
+<meta charset="UTF-8">
+<title>REGISTRATION PAGE</title>
+<link rel="stylesheet" href="/css/style3.css">
 </head>
 <body>
-  <section class="container">
-    <div class="login-container">
-      <div class="circle circle-one"></div>
-      <div class="form-container">
-        <img src="https://drive.google.com/uc?export=view&id=1bKgdKUQ2Uhx6rjY7LNTuBjLfZhJxKVSq" alt="illustration" class="illustration" />
-        <h1 class="opacity">REGISTRATION</h1>
-        <form action="/register" method="post">
-          <input type="text" placeholder="User Name" name="username" required>
-          <input type="email" placeholder="Email ID" name="email" required>
-          <input type="password" placeholder="Password" name="password" required>
-          <label for="gender">Gender:</label>
-          <div class="radio-group">
-            <input type="radio" id="male" name="gender" value="male" required>
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female" required>
-            <label for="female">Female</label>
-            <input type="radio" id="other" name="gender" value="other" required>
-            <label for="other">Other</label>
-          </div>
-          <label for="role">Role:</label>
-          <div class="radio-group">
-            <input type="radio" id="admin" name="role" value="admin" required>
-            <label for="admin">Admin</label>
-            <input type="radio" id="customer" name="role" value="customer" required>
-            <label for="customer">Customer</label>
-          </div>
-          <label for="address">Address:</label>
-          <textarea name="address" placeholder="Address" required></textarea>
-          <button type="submit">REGISTER</button>
-        </form>
-        <div class="register-forget opacity">
-          <a href="/map-login">LOGIN</a>
-        </div>
-      </div>
-      <div class="circle circle-two"></div>
-    </div>
-    <div class="theme-btn-container"></div>
-  </section>
+	<section class="container">
+		<div class="login-container">
+			<div class="circle circle-one"></div>
+			<div class="form-container">
+				<img
+					src="https://drive.google.com/uc?export=view&id=1bKgdKUQ2Uhx6rjY7LNTuBjLfZhJxKVSq"
+					alt="illustration" class="illustration" />
+				<h1 class="opacity">REGISTRATION</h1>
+				<form action="/register" method="post">
+					<input type="text" placeholder="User Name" name="username" required>
+					<input type="email" placeholder="Email ID" name="email" required>
+					<input type="password" placeholder="Password" name="password"
+						required> <label for="gender">Gender:</label>
+					<div class="radio-group">
+						<input type="radio" id="male" name="gender" value="male" required>
+						<label for="male">Male</label> <input type="radio" id="female"
+							name="gender" value="female" required> <label
+							for="female">Female</label> <input type="radio" id="other"
+							name="gender" value="other" required> <label for="other">Other</label>
+					</div>
+					<label for="role">Role:</label>
+					<div class="radio-group">
+						<input type="radio" id="admin" name="role" value="admin" required>
+						<label for="admin">Admin</label> <input type="radio" id="customer"
+							name="role" value="customer" required> <label
+							for="customer">Customer</label>
+					</div>
+					<label for="address">Address:</label>
+					<textarea name="address" placeholder="Address" required></textarea>
+					<button type="submit">REGISTER</button>
+				</form>
+				<div class="register-forget opacity">
+					<a href="/map-login">LOGIN</a>
+				</div>
+			</div>
+			<div class="circle circle-two"></div>
+		</div>
+		<div class="theme-btn-container"></div>
+	</section>
 </body>
 </html>

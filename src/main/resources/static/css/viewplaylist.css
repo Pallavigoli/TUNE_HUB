@@ -1,0 +1,20 @@
+
+    .flex-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Adjust grid columns as needed */
+        gap: 20px; /* Adding gap between grid items */
+        border: 1px solid #ccc; /* Adding border for grid container */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding box shadow */
+        padding: 20px; /* Adding padding for grid container */
+    }
+
+    .flex-item {
+        border: 1px solid #ddd; /* Adding border for grid items */
+        padding: 10px; /* Adding padding for grid items */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding box shadow */
+    }
+
+    /* Optional: Styling the audio controls */
+    audio {
+        width: 100%;
+    }

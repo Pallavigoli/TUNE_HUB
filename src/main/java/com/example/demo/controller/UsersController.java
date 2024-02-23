@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,15 +13,13 @@ import com.example.demo.services.UsersService;
 
 import jakarta.servlet.http.HttpSession;
 
-import org.springframework.web.bind.annotation.GetMapping;
-
 
 @Controller
 public class UsersController 
 {
 	@Autowired
 	UsersService userv;
-	
+
 	@Autowired
 	SongsService songserv;
 
@@ -61,15 +60,16 @@ public class UsersController
 		}
 	}
 	
+
 	@GetMapping("exploreSongs")
 	public String exploreSongs(HttpSession session) 
 	{
 		String email=(String) session.getAttribute("email");
 		Users user=userv.getUser(email);
-		
+
 		System.out.println(user);
 		boolean userStatus=user.isPremium();
-		
+
 		if(userStatus==true)
 		{
 			return "customerhome2";
@@ -77,9 +77,42 @@ public class UsersController
 		else {
 			return "payment";
 		}
-	
+
+	}
+
+	@GetMapping("/deactivate")
+	public String deactivateAccount(@RequestParam("email") String email, HttpSession session) {
+		// Retrieve email associated with the current session
+		String sessionEmail = (String) session.getAttribute("email");
+
+		// Check if session email and entered email match
+		if (sessionEmail != null && sessionEmail.equals(email)) {
+			userv.deactivateUser(email);
+			return "homepage";
+		} else {
+			return "customerhome2";
+		}
 	}
 	
+	
+	@GetMapping("Admin")
+	public String adminhome()
+	{
+		return "adminhome";
+	}
+	
+	@GetMapping("customer")
+	public String customerhome()
+	{
+		return "customerhome2";
+	}
+
+	@GetMapping("/map-logout")
+	public String getMethodName(HttpSession session) {
+		session.invalidate();
+		return "home";
+	}
+
 	
 }
 

@@ -17,6 +17,8 @@ public interface UsersService
 	public Users getUser(String email);
 
 	public void updateUser(Users u);
+
+	public void deactivateUser(String email);
 }
 
 

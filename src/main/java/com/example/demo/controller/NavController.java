@@ -27,11 +27,6 @@ public class NavController
 		return "login";
 	}
 	
-	@GetMapping("/map-logout")
-	public String logoutMapping()	
-	{
-		return "logout";
-	}
 	@GetMapping("new")
 	public String getMethodName() {
 		return "new2";

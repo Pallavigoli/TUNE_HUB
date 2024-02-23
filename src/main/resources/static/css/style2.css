@@ -13,18 +13,12 @@ header {
 	background-image:url("/images/Large jumbo scale __ Music to my eyes __ beige background gold textured musical instruments green indoor plants pink music notes.jpg");
 }
 h1{
-	border:1px solid yellow;
+	border:5px inset yellow;
 	backdrop-filter: blur(25px);
 	font-weight: bolder;
-  animation: cssAnimation_0 1151ms 2 ease;
 }
 
-@keyframes cssAnimation_0 {
-  to {
-    border: 12px ridge rgba(230, 235, 89, 1);
-    border-radius: 4px;
-  }
-}
+
 	
 nav {
 	order: 1;

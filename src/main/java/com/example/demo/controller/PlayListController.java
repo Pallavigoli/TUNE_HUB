@@ -101,7 +101,7 @@ public class PlayListController
 		s.setUser(u);
 		sserv.updateSong(s);
 		
-		return "playlistsuccess";
+		return "playlistsuccesCustomer";
 	}
 	
 	
