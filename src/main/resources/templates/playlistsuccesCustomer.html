@@ -2,15 +2,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet" href="zstyle1.css">
+<title>PLAYLIST CREATED</title><link rel="stylesheet"  href="/css/header.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
 </head>
 <body>
-	<div class="header">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" id="header">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="customer"><h1 id="k">Welcome
 						Customer</h1> TUNE_HUB</a>
@@ -31,7 +29,7 @@
 									class="h-6 w-6">
 						<path d="M9 18V5l12-2v13"></path>
 						<circle cx="6" cy="18" r="3"></circle>
-						<circle cx="18" cy="16" r="3"></circle></svg>DISPLAY SONGS</a></li>
+						<circle cx="18" cy="16" r="3"></circle></svg>ALL SONGS</a></li>
 
 						<li class="nav-item"><a class="nav-link active"
 							th:href="@{/customercreateplaylist}"><svg
@@ -73,7 +71,7 @@
 				</div>
 			</div>
 		</nav>
-	</div>
+	
 	<script>
 function deleteAccount() {
     var confirmDelete = confirm("Are you sure? Do you want to delete your account? Once you delete your account you wont able to login again");

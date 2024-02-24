@@ -39,21 +39,26 @@ p {
 
 button {
     border-radius: 20px;
-    border: 1px solid #FF4B2B;
-    background-color: #FF4B2B;
+   /* border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;*/
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
-    padding: 12px 45px;
+    padding: 8px 23px;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: all 0.3s ease; /* Add transition for smooth effect */
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Add box-shadow */
 }
 
+a{
+	padding:5px;
+	font-size: large;
+	text-decoration: none;
+}
 button:hover {
-    background-color: green; /* Change background color on hover */
-    box-shadow: 0px 15px 20px green; /* Enhance shadow on hover */
+    background-color:rgb(64, 128, 128); /* Change background color on hover */
+    box-shadow: 0px 0px 5px rgb(64, 128, 128); /* Enhance shadow on hover */
     transform: translateY(-3px); /* Add lift effect on hover */
 }
 button:active {
@@ -66,7 +71,7 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+	/*border-color: #FFFFFF;*/
 }
 
 .container {

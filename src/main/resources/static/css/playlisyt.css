@@ -3,8 +3,9 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    width: 300px;
-    margin: 50px auto; /* Centering the form horizontally */
+    width: 500px;
+    margin: 50px auto; /* Centering the form horizontally */	
+    background-color: rgb(44, 139, 115);
 }
 
 .container label {
@@ -23,6 +24,7 @@
 .container input[type="submit"] {
     width: 100%;
     padding: 10px;
+    margin-top:20px;
     background-color: #007bff; /* Button background color */
     color: #fff; /* Button text color */
     border: none;
@@ -33,4 +35,8 @@
 /* Optional: Hover effect for submit button */
 .container input[type="submit"]:hover {
     background-color: #0056b3; /* Button hover background color */
+}
+.container input[type="checkbox"]{
+	width:25px;
+	height:20px;
 }

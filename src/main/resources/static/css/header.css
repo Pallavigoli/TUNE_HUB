@@ -1,0 +1,11 @@
+#header {
+    padding: 40px 2px;
+    background-color: white;
+    background-image: url("/images/Large jumbo scale __ Music to my eyes __ beige background gold textured musical instruments green indoor plants pink music notes.jpg");
+}
+.container-fluid{
+	 backdrop-filter: blur(8px);
+}
+a{
+	color:black !important
+}

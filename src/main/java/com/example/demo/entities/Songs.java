@@ -18,24 +18,28 @@ public class Songs
 	String artist;
 	String genre;
 	String link;
+	//changed here
+	String imagelink;
 	@ManyToMany
 	List<PlayList> playlist;
 	
 	@ManyToOne
 	Users user;
-	
+
 	public Songs() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Songs(int id, String name, String artist, String genre, String link, List<PlayList> playlist, Users user) {
+	public Songs(int id, String name, String artist, String genre, String link, String imagelink,
+			List<PlayList> playlist, Users user) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.artist = artist;
 		this.genre = genre;
 		this.link = link;
+		this.imagelink = imagelink;
 		this.playlist = playlist;
 		this.user = user;
 	}
@@ -80,6 +84,14 @@ public class Songs
 		this.link = link;
 	}
 
+	public String getImagelink() {
+		return imagelink;
+	}
+
+	public void setImagelink(String imagelink) {
+		this.imagelink = imagelink;
+	}
+
 	public List<PlayList> getPlaylist() {
 		return playlist;
 	}
@@ -99,8 +111,9 @@ public class Songs
 	@Override
 	public String toString() {
 		return "Songs [id=" + id + ", name=" + name + ", artist=" + artist + ", genre=" + genre + ", link=" + link
-				+  "]";
+				+ ", imagelink=" + imagelink + "]";
 	}
+	
 	
 
 }

@@ -2,16 +2,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>CREATE PLAYLIST</title>
+<link rel="stylesheet"  href="/css/header.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="/css/playlisyt.css" rel="stylesheet">
 </head>
 <body>
-
-<div class="header">
-	 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/login"><h1 id="k">Welcome Admin</h1>
+    <a class="navbar-brand" href="Admin"><h1 id="k">Welcome Admin</h1>
      TUNE_HUB</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -57,15 +56,9 @@
         </li>
         
       </ul>
-      
-      <form class="d-flex" id="searchForm">
-        <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="button" onclick="searchSongs()">Search</button>
-      </form>
     </div>
   </div>
 </nav>
-</div>
 
 <!--  <a th:href="@{/map-logout}">LOG OUT</a>-->
 <!--  <a th:href="@{/deactivate}">DELETE ACCOUNT</a>-->
@@ -135,7 +128,8 @@ function searchSongs() {
 <div th:each="song : ${songslist}">
 
 <input type="checkbox" th:name="songs" th:value="${song.id}">
-<label th:text = "${song.name}"></label>
+<label th:text = "${song.name}"></label>  - GENER:
+			<label th:text="${song.genre}"></label>
 
 </div>
 

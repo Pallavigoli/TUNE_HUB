@@ -2,15 +2,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet" href="zstyle1.css">
+<title>CUSTOMER HOME PAGE</title>
+<link rel="stylesheet"  href="/css/header.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap"
+	rel="stylesheet">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="/css/swiper.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+<link href="/css/homes.css" rel="stylesheet">
 
 </head>
 <body>
-	<div class="header">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" id="header" style="padding: 10px 2px;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="customer"><h1 id="k">Welcome
 						Customer</h1> TUNE_HUB</a>
@@ -31,7 +35,7 @@
 									class="h-6 w-6">
 						<path d="M9 18V5l12-2v13"></path>
 						<circle cx="6" cy="18" r="3"></circle>
-						<circle cx="18" cy="16" r="3"></circle></svg>DISPLAY SONGS</a></li>
+						<circle cx="18" cy="16" r="3"></circle></svg>ALL SONGS</a></li>
 
 						<li class="nav-item"><a class="nav-link active"
 							th:href="@{/customercreateplaylist}"><svg
@@ -104,6 +108,90 @@ function deleteAccount() {
 }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<div class="slide-container swiper">
+		<div class="slide-content">
+			<div class="card-wrapper swiper-wrapper">
+
+				<div class="card swiper-slide">
+					<div class="image-content">
+						<span class="overlay"></span>
+
+						<div class="card-image">
+							<img
+								src="/images/pngtree-woman-in-colorful-music-sound-wallpaper-image_2894117.jpg"
+								alt="" class="card-img">
+						</div>
+					</div>
+
+					<div class="card-content">
+						<h2 class="name">ABOUT VIEWING SONGS</h2>
+						<p class="description">The music app displayed a list of songs
+							in a clean and organized layout. Each song was accompanied by its
+							title, artist, and album cover. I could easily scroll through the
+							list and see all my favorite tracks at a glance. The app also
+							filter by genre. Overall, the user-friendly design made it simple
+							to browse and select songs to listen to.</p>
+
+
+					</div>
+				</div>
+				<div class="card swiper-slide">
+					<div class="image-content">
+						<span class="overlay"></span>
+
+						<div class="card-image">
+							<img src="/images/fbaee1ebec8ad0b7bc3dbce2daa96e6700a36bcd.jpeg"
+								alt="" class="card-img">
+						</div>
+					</div>
+
+					<div class="card-content">
+						<h2 class="name">ABOUT CREATING PLAYLIST</h2>
+						<p class="description">Creating a playlist involves selecting
+							and organizing a collection of songs or tracks based on a
+							specific theme, mood, or genre.Once a playlist is created, it can
+							be saved, shared, and played on various music streaming
+							platforms. Playlists can be customized to suit different moods,
+							activities, or events, making them a versatile and personalized
+							music listening.</p>
+
+
+					</div>
+				</div>
+				<div class="card swiper-slide">
+					<div class="image-content">
+						<span class="overlay"></span>
+
+						<div class="card-image">
+							<img src="/images/f29e561a3fc85146c9d4f1962435ac77.jpg" alt=""
+								class="card-img">
+						</div>
+					</div>
+
+					<div class="card-content">
+						<h2 class="name">ABOUT VIEWING PLAYLIST</h2>
+						<p class="description">Playlists can be created manually by
+							adding songs one by one or generated automatically. The process of creating
+							a playlist can be a creative and enjoyable way to discover new
+							music and share favorite songs with others.Whether for a workout,
+							road trip, party, or relaxation, creating the perfect playlist
+							can enhance any moment.</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="swiper-button-next swiper-navBtn"></div>
+		<div class="swiper-button-prev swiper-navBtn"></div>
+		<div class="swiper-pagination"></div>
+	</div>
+
+	<!-- Swiper JS -->
+	<script src="/js/swiper.js"></script>
+
+	<!-- JavaScript -->
+	<script src="/js/script.js"></script>
 
 </body>
 </html>
