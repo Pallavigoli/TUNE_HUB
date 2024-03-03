@@ -52,6 +52,16 @@
           </ul>
         </li>
         </li>
+        <!-- Search form -->
+					<form id="searchForm" action="/searchsongs" method="get"
+						>
+						<input type="text" name="query" placeholder="Search songs...">
+						<br> <select name="type">
+							<option value="name">By Name</option>
+							<option value="artist">By Artist</option>
+						</select> &nbsp &nbsp
+						<button type="submit">Search</button>
+					</form>
       </ul>
     </div>
   </div>

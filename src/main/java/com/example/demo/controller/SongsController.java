@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entities.Songs;
 import com.example.demo.services.SongsService;
@@ -50,6 +51,22 @@ public class SongsController {
 		return "customerDisplaysongs";
 	}
 
+	
+	 // Search songs by name or artist
+    @GetMapping("/searchsongs")
+    public String searchSongs(@RequestParam("query") String query, @RequestParam("type") String type, Model model) {
+        List<Songs> searchResults;
+        if ("name".equalsIgnoreCase(type)) {
+            searchResults = songserv.searchSongsByName(query);
+        } else if ("artist".equalsIgnoreCase(type)) {
+            searchResults = songserv.searchSongsByArtist(query);
+        } else {
+            // Handle invalid search type
+            return "error";
+        }
+        model.addAttribute("songslist", searchResults);
+        return "displaysongs";
+    }
 }
 
 

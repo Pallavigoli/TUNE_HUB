@@ -6,12 +6,16 @@ import com.example.demo.entities.Songs;
 
 public interface SongsService  {
 	public String addSongs(Songs song);
+
 	public boolean songExists(String name);
-	
+
 	public List<Songs> fetchAllSongs();
-	
-	
+
 	public void updateSong(Songs song);
+
+	public List<Songs> searchSongsByName(String query);
+
+	public List<Songs> searchSongsByArtist(String query);
 }
 
 

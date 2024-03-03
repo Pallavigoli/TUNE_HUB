@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LOGIN PAGE</title>
+<link rel="stylesheet" href="/css/style4.css">
+</head>
+<body>
+	<section class="container">
+		<div class="login-container">
+			<div class="circle circle-one"></div>
+			<div class="form-container">
+				<h1 class="opacity">Trouble logging in?</h1>
+				<form action="map-resetpass" method="post">
+
+					<label>Enter Email ID:</label> <input type="email" name="email" id="email"
+						placeholder="Email Id"/>
+						 <input type="submit" value="CHECK" onclick="fun()" />
+				</form>
+				<div class="register-forget opacity">
+					<a href="map-register">REGISTER</a> <a href="/map-login" onclick="forget">LOG IN</a>
+				</div>
+			</div>
+			<div class="circle circle-two"></div>
+		</div>
+		<div class="theme-btn-container"></div>
+	</section> 
+	<script>
+   function fun() {
+       var emailInput = document.getElementById('email');
+       if (emailInput.value.trim() === '') {
+           alert("Email cannot be empty!");
+           return false; // Prevent form submission
+       }
+   }
+</script>
+    
+</body>
+</html>

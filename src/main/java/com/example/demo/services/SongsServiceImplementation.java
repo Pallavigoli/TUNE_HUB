@@ -44,6 +44,16 @@ public class SongsServiceImplementation implements SongsService {
 	public void updateSong(Songs song) {
 		srepo.save(song);
 	}
+	
+	// Search songs by name
+    public List<Songs> searchSongsByName(String name) {
+        return srepo.findByNameContainingIgnoreCase(name);
+    }
+
+    // Search songs by artist
+    public List<Songs> searchSongsByArtist(String artist) {
+        return srepo.findByArtistContainingIgnoreCase(artist);
+    }
 
 }
 

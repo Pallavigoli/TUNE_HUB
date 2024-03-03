@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -27,18 +26,15 @@ public class NavController
 		return "login";
 	}
 	
-	@GetMapping("new")
-	public String getMethodName() {
-		return "new2";
-	}
-	
 	@GetMapping("/map-songs")
 	public String songMapping()	
 	{
 		return "addsongs";
 	}
 	
-	
-	
-	
+	@GetMapping("map-forgetpass")
+	public String forgetPass()
+	{
+		return "forgetpass";
+	}
 }

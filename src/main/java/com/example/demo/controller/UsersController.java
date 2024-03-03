@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.demo.entities.Users;
 import com.example.demo.services.SongsService;
 import com.example.demo.services.UsersService;
-
 import jakarta.servlet.http.HttpSession;
+
 
 
 @Controller
@@ -112,7 +112,32 @@ public class UsersController
 		session.invalidate();
 		return "home";
 	}
+	
 
+	@PostMapping("map-resetpass")
+	public String resetPass(@RequestParam String email) {
+		 boolean value = userv.emailExists(email);
+		 if(value==true)
+		 {
+			 return "resetpass";
+		 }
+	     
+	     return "forgetpass";
+	}
+	
+	@PostMapping("setpass")
+	public String setPass(@RequestParam String email, @RequestParam String password) {
+		Users u=userv.getUser(email);
+		if(u!=null)
+		{
+		u.setPassword(password);
+		userv.updateUser(u);
+		return "home";
+		}
+		//TODO: process POST request
+		
+		return "resetpass";
+	}
 	
 }
 
