@@ -16,13 +16,14 @@
 	crossorigin="anonymous">
 
 <link href="/css/homes.css" rel="stylesheet">
+
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="header"
 		style="padding: 10px 2px;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href=Admin><h1 id="k">Welcome Admin</h1>
-				TUNE_HUB</a>
+				VIBE_VAULT</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -79,6 +80,7 @@
 
 					</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" th:href="@{/map-account}">PROFILE</a></li>
 							<li><a class="dropdown-item" th:href="@{/map-logout}">LOG
 									OUT</a></li>
 							<li><button class="dropdown-item" onclick="deleteAccount()">DELETE

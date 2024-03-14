@@ -7,5 +7,12 @@
 	 backdrop-filter: blur(8px);
 }
 a{
-	color:black !important
+	color:rgb(12, 12, 12) !important;
+	font-weight:600;
 }
+.dropdown-menu{
+	background-image: url('/images/Screenshot (6).png');
+}
+body{
+overflow-x: hidden;}
+	

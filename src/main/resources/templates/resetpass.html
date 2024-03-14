@@ -16,9 +16,9 @@
 					<label>Email ID:</label> <input type="email" name="email"
 						placeholder="Email Id" /> 
 					<label>New Password:</label> <input type="text"
-						placeholder="Enter password" /> 
+						placeholder="Enter password"  id="newpass"/> 
 					<input type="text" name="password"
-						placeholder="Re-enter the password" /> 
+						placeholder="Re-enter the password" id="confirm" onchange="fun()"/> 
 						
 						
 						<input type="submit" value="RESET" />
@@ -30,6 +30,13 @@
 		</div>
 		<div class="theme-btn-container"></div>
 	</section>
-	
+	<script type="text/javascript">
+	var newpass=document.getElementById("newpass")
+    var confirm=document.getElementById("confirm")
+    if(newpass==confirm)
+    {
+        document.getElementById("button").disabled="false"
+    }
+	</script>
 </body>
 </html>

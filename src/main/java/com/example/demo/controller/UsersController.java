@@ -2,14 +2,16 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.example.demo.entities.Users;
 import com.example.demo.services.SongsService;
 import com.example.demo.services.UsersService;
+
 import jakarta.servlet.http.HttpSession;
 
 
@@ -47,6 +49,7 @@ public class UsersController
 			//checking whether the user is admin or customer
 			if(userv.getRole(email).equals("admin"))
 			{
+				session.setAttribute("username", userv.getUser("email"));
 				return "adminhome";
 			}
 			else
@@ -59,6 +62,15 @@ public class UsersController
 			return "loginfail";
 		}
 	}
+	
+	@GetMapping("/map-account")
+	public String acc(Model model, HttpSession session) {
+		String email=(String) session.getAttribute("email");
+		Users u=userv.getUser(email);
+		model.addAttribute("user", u);
+		return "profile";
+	}
+	
 	
 
 	@GetMapping("exploreSongs")
@@ -95,6 +107,12 @@ public class UsersController
 	}
 	
 	
+	@GetMapping("/map-logout")
+	public String getMethodName(HttpSession session) {
+		session.invalidate();
+		return "home";
+	}
+	
 	@GetMapping("Admin")
 	public String adminhome()
 	{
@@ -107,11 +125,6 @@ public class UsersController
 		return "customerhome2";
 	}
 
-	@GetMapping("/map-logout")
-	public String getMethodName(HttpSession session) {
-		session.invalidate();
-		return "home";
-	}
 	
 
 	@PostMapping("map-resetpass")

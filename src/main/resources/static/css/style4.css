@@ -25,8 +25,29 @@ body {
   -ms-transition: background 0.2s ease;
   -o-transition: background 0.2s ease;
 }
+#message{
+	 font-family: "poppins";
+	 font-size: 10px;
+	/* margin-top: -26px;
+	margin-bottom: 26px; */
+	 
+}
 
+#password {
+  padding-right: 20px;
+}
 
+#eye {
+  position: absolute;
+  top:63%;
+  right: 50px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+#eye:active{
+	opacity: 1;
+}
 
 a {
 	

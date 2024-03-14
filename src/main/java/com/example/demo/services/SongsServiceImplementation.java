@@ -54,6 +54,12 @@ public class SongsServiceImplementation implements SongsService {
     public List<Songs> searchSongsByArtist(String artist) {
         return srepo.findByArtistContainingIgnoreCase(artist);
     }
+	@Override
+	public void deleteSong(String name) {
+		// TODO Auto-generated method stub
+		Songs s=srepo.findByName(name);
+		srepo.delete(s);
+	}
 
 }
 

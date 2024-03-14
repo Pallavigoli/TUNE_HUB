@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <title>REGISTRATION PAGE</title>
 <link rel="stylesheet" href="/css/style3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 <body>
 	<section class="container">
@@ -16,9 +19,11 @@
 				<h1 class="opacity">REGISTRATION</h1>
 				<form action="/register" method="post">
 					<input type="text" placeholder="User Name" name="username" required>
-					<input type="email" placeholder="Email ID" name="email" required>
-					<input type="password" placeholder="Password" name="password"
-						required> <label for="gender">Gender:</label>
+					<input type="email" placeholder="Email ID" name="email" required id="email">
+					<p class="opacity" id="message"></p>
+					<input type="password" name="password" placeholder="Password" id="password" required="required" onclick="emailfun()"/>
+					<i class="fa fa-eye" id="eye"></i> 
+					<label for="gender">Gender:</label>
 					<div class="radio-group">
 						<input type="radio" id="male" name="gender" value="male" required>
 						<label for="male">Male</label> <input type="radio" id="female"
@@ -45,5 +50,35 @@
 		</div>
 		<div class="theme-btn-container"></div>
 	</section>
+	<script type="text/javascript">
+		const password = document.getElementById("password");
+		const eye = document.getElementById("eye");
+
+		eye.addEventListener("click", togglePassword);
+
+		function togglePassword() {
+
+			if (password.type === "password") {
+				password.type = "text";
+				
+			} else {
+				password.type = "password";
+				
+			}
+
+		}
+		
+		//this is for email
+function emailfun() {
+  const email = document.getElementById("email").value;
+
+  if(email.endsWith("@gmail.com")) {
+		 document.getElementById("message").innerHTML = "";
+		 
+  } else {  
+    document.getElementById("message").innerHTML = "Please enter valid @gmail.com";
+  }
+}
+	</script>
 </body>
 </html>

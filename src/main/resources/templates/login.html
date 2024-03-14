@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>LOGIN PAGE</title>
 <link rel="stylesheet" href="/css/style4.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<section class="container">
@@ -13,19 +14,55 @@
 				<h1 class="opacity">LOGIN</h1>
 				<form action="/login" method="post">
 
-					<label>Email ID:</label> <input type="email" name="email"  placeholder="Email Id"/> <label>Password:</label>
-					<input type="password" name="password" placeholder="Password"/> <input type="submit"
-						value="LOGIN" />
-						
-
+					<label>Email ID:</label> <input type="email" name="email"
+						placeholder="Email Id" id="email" /><p class="opacity" id="message"></p> <label>Password:</label> <input
+						type="password" name="password" placeholder="Password"
+						id="password" onclick="emailfun()" /> <i class="fa fa-eye" id="eye"></i> <input
+						type="submit" value="LOGIN" />
 				</form>
 				<div class="register-forget opacity">
-					<a href="map-register">REGISTER</a> <a href="map-forgetpass" onclick="forget">FORGOT PASSWORD</a>
+					<a href="map-register">REGISTER</a> <a href="map-forgetpass"
+						onclick="forget">FORGOT PASSWORD</a>
 				</div>
 			</div>
 			<div class="circle circle-two"></div>
 		</div>
 		<div class="theme-btn-container"></div>
 	</section>
+	<script type="text/javascript">
+	
+		//this is for password
+		const password = document.getElementById("password");
+		const eye = document.getElementById("eye");
+
+		eye.addEventListener("click", togglePassword);
+
+		function togglePassword() {
+
+			if (password.type === "password") {
+				password.type = "text";
+				eye.src = "eye-open.png";
+			} else {
+				password.type = "password";
+				eye.src = "eye.png";
+			}
+
+		}
+		
+		
+		//this is for email
+		function emailfun()
+		{
+			const email=document.getElementById("email").value;
+			if(email.endsWith("@gmail.com"))
+				{
+				document.getElementById("message").innerHTML="";
+				}
+			else{
+				document.getElementById("message").innerHTML="Please enter valid @gmail.com";	
+			}
+		}
+		
+	</script>
 </body>
 </html>

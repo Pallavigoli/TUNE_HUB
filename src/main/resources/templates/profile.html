@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>DISPLAY SONGS</title>
+<meta charset="ISO-8859-1">
+<title>PROFILE</title>
 <link rel="stylesheet" href="/css/header.css">
-<link href="/css/viewplaylist.css" rel="stylesheet">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -20,33 +19,42 @@ body {
 	background: linear-gradient(306deg, rgba(133, 169, 146, 1) 17%,
 		rgba(116, 185, 172, 1) 30%, rgba(72, 114, 102, 1) 69%,
 		rgba(163, 182, 170, 1) 92%);
+		
+}
+.account {
+    padding: 20px;
+    border-radius: 5px;
+    border:1px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin:100px 300px 100px 300px;
 }
 
-.delete-audio-button {
-	position: absolute;
-	top: 78%;
-	right: 10px;
-	transform: translateY(-50%);
-	background-color: rgb(133, 169, 146); /* Red color for delete button */
-	color: #ffffff; /* White text color */
-	border: none;
-	border-radius: 5px;
-	padding: 5px 10px;
-	cursor: pointer;
+.field {
+    display: flex;
+    align-items: center;
+    color:black;
 }
 
-.delete-audio-button:hover {
-	background-color: #cc0000; /* Darker shade of red on hover */
+.field span {
+    font-weight: bold;
+    margin: 0px 0px 20px 300px ;
+    width: 100px; /* Adjust width as needed */
 }
+
+.field p {
+font-weight: 600;
+    margin: 0px 0px 20px 100px ;
+    text-align: left;
+    flex-grow: 1;
+}
+
 </style>
 </head>
-
 <body>
-
 	<nav class="navbar navbar-expand-lg navbar-light bg-light" id="header">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="Admin"><h1 id="k">Welcome
-					Admin</h1> VIBE_VAULT</a>
+					Admin</h1> TUNE_HUB</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -110,25 +118,11 @@ body {
 									ACCOUNT</button></li>
 						</ul></li>
 
-					<!-- Search form -->
-					<form id="searchForm" action="/searchsongs" method="get">
-						<input type="text" name="query" placeholder="Search songs...">
-						<br> <select name="type">
-							<option value="name">By Name</option>
-							<option value="artist">By Artist</option>
-						</select> &nbsp &nbsp
-						<button type="submit">Search</button>
-					</form>
 				</ul>
 
 			</div>
 		</div>
 	</nav>
-
-	<!--  <a th:href="@{/map-logout}">LOG OUT</a>-->
-	<!--  <a th:href="@{/deactivate}">DELETE ACCOUNT</a>-->
-
-
 
 	<script>
 function deleteAccount() {
@@ -162,91 +156,37 @@ function deleteAccount() {
 		crossorigin="anonymous"></script>
 
 
+	<div class="account" th:each="user : ${user}">
+    <div class="field">
+        <span>NAME</span>
+        <p class="centered" th:text="${user.username}"></p>
+    </div>
+    <div class="field">
+        <span>EMAIL</span>
+        <p class="centered" th:text="${user.email}"></p>
+    </div>
+    <div class="field">
+        <span>PASSWORD</span>
+        <p class="centered" th:text="${user.password}"></p>
+    </div>
+    <div class="field">
+        <span>GENDER</span>
+        <p class="centered" th:text="${user.gender}"></p>
+    </div>
+    <div class="field">
+        <span>ROLE</span>
+        <p class="centered" th:text="${user.role}"></p>
+    </div>
+    <div class="field">
+        <span>ADDRESS</span>
+        <p class="centered" th:text="${user.address}"></p>
+    </div>
+    <div class="field">
+        <span>PREMIUM</span>
+        <p class="centered" th:text="${user.isPremium}"></p>
+    </div>
+</div>
 
-	<div class="flex-container">
-		<div class="flex-item" th:each="song : ${songslist}">
-			<!-- changed here -->
-			<img th:src="${song.imagelink}" alt="image"><br> <strong>Name:</strong>
-			<span th:text="${song.name}"></span><br> <strong>Artist:</strong>
-			<span th:text="${song.artist}"></span><br> <strong>Genre:</strong>
-			<span th:text="${song.genre}"></span><br>
-
-
-			<div class="audio-container">
-				<audio controls>
-					<source th:src="${song.link}" type="audio/mpeg">
-				</audio>
-				<button class="delete-audio-button"
-					onclick="deletesong('${songs.name}')">Delete</button>
-			</div>
-		</div>
-	</div>
-	
-	<script>
-function deletesong(songname) {
-    if (confirm("Are you sure you want to delete this song?")) {
-        fetch('deleteSong' + encodeURIComponent(songname), {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error deleting song');
-            }
-            return response.text();
-        })
-        .then(message => {
-            alert('Song deleted successfully');
-            // Optionally, update the UI to reflect the deletion
-            window.location.reload(); // Reload the page to reflect changes
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error deleting song');
-        });
-    }
-}
-</script>
-
-
-
-
+		
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--  
-	<table border>
-		<thead>
-			<tr>
-				<td>Name</td>
-				<td>Artist</td>
-				<td>Genre</td>
-				<td>Link</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="songslist : ${songslist}">
-				<td th:text=${songslist.name}></td>
-				<td th:text=${songslist.artist}></td>
-				<td th:text=${songslist.genre}></td>
-				<td><audio controls>
-						<source th:src=${songslist.link} type="audio/mpeg">
-					</audio></td>
-			</tr>
-		</tbody>
-	</table>
-	
-	-->

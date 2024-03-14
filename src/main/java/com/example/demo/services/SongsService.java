@@ -16,6 +16,8 @@ public interface SongsService  {
 	public List<Songs> searchSongsByName(String query);
 
 	public List<Songs> searchSongsByArtist(String query);
+
+	public void deleteSong(String name);
 }
 
 

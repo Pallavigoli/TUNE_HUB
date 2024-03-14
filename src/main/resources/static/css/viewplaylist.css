@@ -12,10 +12,32 @@
 /* Flex item */
 .flex-item {
 	border: 4px solid #ddd; /* Adding border for grid items */
+	border-radius:25px;
 	padding: 10px; /* Adding padding for grid items */
 	box-shadow: 0 4px 6px rgba(0, 0, 0); /* Adding box shadow */
 	background-color: rgb(44, 139, 115);
 	color: white;
+position: relative;
+  /* Set initial transition properties */
+  transition: transform 0.3s ease;
+}
+
+.flex-item:hover {
+  /* Apply the zoom effect on hover */
+  transform: scale(1.1);
+}
+
+/* Optionally, you can add other styles for the slit effect */
+.flex-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust as needed */
+  opacity: 0;
+  transition:  0.3s ease;
 }
 
 /* Optional: Styling the audio controls */

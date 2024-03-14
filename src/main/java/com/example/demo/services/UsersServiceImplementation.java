@@ -55,8 +55,6 @@ implements UsersService
 
 
 
-
-
 	@Override
 	public String getRole(String email) {
 		return (repo.findByEmail(email).getRole());

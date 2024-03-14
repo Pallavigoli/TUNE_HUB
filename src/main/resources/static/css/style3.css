@@ -12,6 +12,23 @@ html {
   scroll-behavior: smooth;
 }
 
+#eye {
+  position: absolute;
+  top:37%;
+  right: 30px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+#eye:active{
+	opacity: 1;
+}
+
+#message{
+	font-family: "poppins";
+	 font-size: 10px;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
@@ -100,7 +117,7 @@ h1 {
   font-weight: bold;
   width: 100%;
   cursor: pointer;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   transition: all 0.1s ease-in-out;
   border: none;
   -webkit-border-radius: 5px;

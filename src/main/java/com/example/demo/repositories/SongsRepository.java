@@ -13,4 +13,6 @@ public interface SongsRepository extends JpaRepository<Songs, Integer>
 	public List<Songs> findByNameContainingIgnoreCase(String name);
 
 	public List<Songs> findByArtistContainingIgnoreCase(String artist);
+
+	
 }

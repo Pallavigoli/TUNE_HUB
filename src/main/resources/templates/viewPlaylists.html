@@ -6,7 +6,31 @@
 <link rel="stylesheet"  href="/css/header.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="/css/viewplaylist.css" rel="stylesheet">
+<style>
+body {
+	background: rgb(133, 169, 146);
+	background: linear-gradient(306deg, rgba(133, 169, 146, 1) 17%,
+		rgba(116, 185, 172, 1) 30%, rgba(72, 114, 102, 1) 69%,
+		rgba(163, 182, 170, 1) 92%);
+}
 
+.delete-audio-button {
+	position: absolute;
+	top: 78%;
+	right: 10px;
+	transform: translateY(-50%);
+	background-color: rgb(133, 169, 146); /* Red color for delete button */
+	color: #ffffff; /* White text color */
+	border: none;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.delete-audio-button:hover {
+	background-color: #cc0000; /* Darker shade of red on hover */
+}
+</style>
 </head>
 <body>
 
@@ -53,6 +77,7 @@
            
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item"   th:href="@{/map-account}">PROFILE</a></li>
             <li><a class="dropdown-item"   th:href="@{/map-logout}">LOG OUT</a></li>
             <li><button class="dropdown-item" onclick="deleteAccount()">DELETE ACCOUNT</button></li>
           </ul>
@@ -96,6 +121,36 @@ function deleteAccount() {
     }
 }
 </script>
+
+	<script>
+function deletesong(songname) {
+    if (confirm("Are you sure you want to delete this song?")) {
+        fetch('deleteSong' + encodeURIComponent(songname), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error deleting song');
+            }
+            return response.text();
+        })
+        .then(message => {
+            alert('Song deleted successfully');
+            // Optionally, update the UI to reflect the deletion
+            window.location.reload(); // Reload the page to reflect changes
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error deleting song');
+        });
+    }
+}
+</script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
@@ -117,6 +172,9 @@ function deleteAccount() {
                 <audio controls>
                     <source th:src="${song.link}" type="audio/mpeg">
                 </audio>
+                <button class="delete-audio-button"
+					onclick="deletesong('${songs.name}')">Delete</button>
+			
             </li>
         </ul>
     </div>
